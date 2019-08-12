@@ -27,13 +27,13 @@ public class MovementController : MonoBehaviour
     void FixedUpdate()
     {
         
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
-        anim.SetBool("jump", !isGrounded);
+        //isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, whatIsGround);
+        //anim.SetBool("jump", !isGrounded);
 
 
-        if (isGrounded)
-            doubleJump = false;
-        if (!isGrounded) return;
+        //if (isGrounded)
+        //    doubleJump = false;
+        //if (!isGrounded) return;
 
         float move = Input.GetAxis("Horizontal");
         anim.SetFloat("speed", Mathf.Abs(move));
@@ -52,14 +52,14 @@ public class MovementController : MonoBehaviour
 
     private void Update()
     {
-        if ((isGrounded || !doubleJump) && Input.GetKeyDown(KeyCode.Space))
-        {
-            anim.SetBool("jump", true);
-            this.rigidBody.AddForce(new Vector2(0, jumpForce));
+        //if ((isGrounded || !doubleJump) && Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    anim.SetBool("jump", true);
+        //    this.rigidBody.AddForce(new Vector2(0, jumpForce));
 
-            if (!doubleJump && !isGrounded)
-                doubleJump = true;
-        }
+        //    if (!doubleJump && !isGrounded)
+        //        doubleJump = true;
+        //}
     }
 
     void FlipFacing()
